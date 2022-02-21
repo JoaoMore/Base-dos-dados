@@ -98,7 +98,7 @@ genero <- ggplot(bens.mun.shape) +
 
 # Juntando os dois graficos e adicionando texto globais
 
-wrap_plots(list(raca, genero), ncol = 2, ) +
+plot <- wrap_plots(list(raca, genero), ncol = 2, ) +
   plot_annotation(
     title = "Eleições Municipais 2020",
     subtitle = "Entre os candidatos com maior patrimônio em cada município, <br>
@@ -119,3 +119,7 @@ wrap_plots(list(raca, genero), ncol = 2, ) +
                                                   margin = margin(30, 0, 0, 0))))
 
 
+
+Cairo::CairoPNG(filename = 'plot.png', width = 850, height = 550, )
+plot
+dev.off()
